@@ -1,6 +1,4 @@
-# Title
-
-A Context-Aware Approach for Filtering Empty Images in Camera Trap Data Using Siamese Network
+# A Context-Aware Approach for Filtering Empty Images in Camera Trap Data Using Siamese Network
 
 ## What is it?
 
@@ -47,7 +45,65 @@ if you want to run your own configuration, here are the descriptions of the para
 
 In the directory ".whitelist/.scripts/create_whitelists.ipynb" has the script for creating pairs for models, including siamese and non-siamese models. Still in the directory ".whitelist/.scripts" there are scripts for you to copy images from hd to ssd, if you want.
 
-In the file ".whitelist/.scripts/utils/map_description.json" there is a description of the parameters for you to use and create your own list of pairs of Siamese network, but if you want to use the same list used in our article you can download the .zip through the link DATASET_LINK.
+In the file ".whitelist/.scripts/utils/map_description.json" there is a description of the parameters for you to use and create your own list of pairs of the Siamese network, but if you want to use the same list used in our article you can download the . zip through the link [Datasets](https://drive.google.com/drive/folders/1vIp3HSgzngNDg1_GtSgRjFgTwb9Z8k5Z?usp=sharing). In case you want to use exactly the same models that we generated with exactly the same weights and parameters, you can download them through this link [Models](https://drive.google.com/drive/folders/1vIp3HSgzngNDg1_GtSgRjFgTwb9Z8k5Z?usp=sharing)
+
+For you to acquire the images of the datasets used, we suggest you download them from [Lila Science](https://lila.science/datasets) because there you will find everything you need which are the images and metadata of each dataset
+
+If you wanted to run the script for creating image pairs for the Siamese network, just configure the following parameters in the ".whitelist/.scripts/utils/map.json" file:
+
+```bash
+datasets: ["wcs", "wellington", "serengeti", "caltech"]
+
+{
+    "datasets": {
+            "metadata": "location of the json file where the dataset metadata is",
+            "images_path": "location of the directory where the dataset images are located",
+            "images_path_ssd": "location of the directory where the dataset images are located, only if you have ssd and want to transfer the images from hd to ssd",
+            "images_filenames_glob_*": "the subfolder structure of the directory where the images are located",
+            "path_target_time_siamese": "location where the .csv with the siamese image pairs should be created",
+            "path_target_time": "location where the .csv with the non-siamese image pairs should be created",
+            "img_format": "image format"
+    },
+    "models": {
+        "zilong": {
+                "path_output_animal": "location where the list of images with animals will be saved",
+                "path_output_empty": "location where the list of images without animals will be saved",
+                "path_csv": "location where the .csv with the classification results will be saved",
+                "path_tmp": "location of temporary directory for running zilong (in this directory little control information is stored)",
+                "path_test": "location from where the list of images will be loaded to be sorted",
+                "path_results": "location where standard zilong outputs will be saved",
+                "command": "shell command to run zilong"
+        }
+    }
+}
+```
+
+## Models
+
+The figure below shows the difference structurally of the Siamese and non-Siamese models
+
+![alt text](https://github.com/LuizAlencar17/siamese-network-on-camera-trap/blob/main/.readme_files/our_method_en.jpg?raw=true)
+
+## Results
+
+The figures below show the performance of the Siamese and non-Siamese models in the three databases used.
+
+![alt text](https://raw.githubusercontent.com/LuizAlencar17/siamese-network-on-camera-trap/69b73a8fa63b4835ef36d657c0005573730e4ac2/.readme_files/accuracy_of_models_in_the_caltech_database_en.svg)
+
+
+![alt text](https://raw.githubusercontent.com/LuizAlencar17/siamese-network-on-camera-trap/69b73a8fa63b4835ef36d657c0005573730e4ac2/.readme_files/accuracy_of_models_in_the_serengeti_database_en.svg)
+
+
+![alt text](https://raw.githubusercontent.com/LuizAlencar17/siamese-network-on-camera-trap/69b73a8fa63b4835ef36d657c0005573730e4ac2/.readme_files/accuracy_of_models_in_the_wcs_database_en.svg)
+
+
+## Camera Trap
+
+Camera traps are heat- or motion-activated cameras placed in natural environments to monitor and investigate animal populations and behavior. They are used to locate endangered species, identify important habitats, monitor places of interest and analyze patterns of wildlife activity. These devices are capable of capturing tens of thousands of images. However, the extraction of information from these images is traditionally performed manually. The number of people available to extract this information is extremely limited compared to the amount of images generated. For this reason, much of the valuable knowledge contained in the data repositories of these images remains untapped.
+
+![alt text](https://raw.githubusercontent.com/LuizAlencar17/siamese-network-on-camera-trap/69b73a8fa63b4835ef36d657c0005573730e4ac2/.readme_files/serengeti_day_stage_en.jpg)
+
+![alt text](https://raw.githubusercontent.com/LuizAlencar17/siamese-network-on-camera-trap/69b73a8fa63b4835ef36d657c0005573730e4ac2/.readme_files/serengeti_year_stage_en.jpg)
 
 ## Contributing
 
@@ -55,6 +111,24 @@ Pull requests are welcome. For major changes, please open an issue first
 to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
+
+## Citation
+
+If you find this code useful in your research, please consider citing:
+
+```bash
+@InProceedings{luiz_2023_sibgrapi,
+    author    = {Alencar, Luiz, and Cunha, Fagner and dos Santos, Eulanda M. },
+    title     = {A Context-Aware Approach for Filtering Empty Images in Camera Trap Data Using Siamese Network},
+    booktitle = {Proceedings of the IEEE/SIBGRAPI - Conference on Graphics, Patterns and Images},
+    month     = {August},
+    year      = {2023}
+}
+```
+
+## Contact
+
+If you have any questions, feel free to contact Luiz Alencar (e-mail: fabio.alencar644@gmail.com) or Github issues.
 
 ## License
 
