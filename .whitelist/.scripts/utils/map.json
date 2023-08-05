@@ -1,0 +1,50 @@
+{
+    "caltech": {
+            "metadata": "/data/luiz/dataset/caltech/caltech_images_20210113.json",
+            "images_path": "/data/luiz/dataset/caltech_images/",
+            "images_path_ssd": "/ssd/luiz/dataset/caltech_images/",
+            "images_filenames_glob_*": "/*/*",
+            "path_target_time_siamese": "/home/luiz/experiments/.whitelist/datasets/caltech/siamese/",
+            "path_target_time": "/home/luiz/experiments/.whitelist/datasets/caltech/no-siamese/",
+            "img_format": ".JPG"
+    },
+    "serengeti": {
+            "metadata": "/data/luiz/dataset/serengeti/SnapshotSerengeti_S1-11_v2.1.json",
+            "images_path": "/data/luiz/dataset/serengeti_images/",
+            "images_path_ssd": "/ssd/luiz/dataset/serengeti_images/",
+            "path_origin": "../whitelist/ss_site_val_empty.csv",
+            "path_target_time_siamese": "/home/luiz/experiments/.whitelist/datasets/serengeti/siamese/",
+            "images_filenames_glob_*": "/*/*/*/*",
+            "path_target_time": "/home/luiz/experiments/.whitelist/datasets/serengeti/no-siamese/",
+            "img_format": ".JPG"
+    },
+    "wellington": {
+            "metadata": "/data/luiz/dataset/wellington/wellington_camera_traps.json",
+            "images_path": "/data/luiz/dataset/wellington_images/",
+            "images_path_ssd": "/ssd/luiz/dataset/wellington_images/",
+            "images_filenames_glob_*": "/*",
+            "path_target_time_siamese": "/home/luiz/experiments/.whitelist/datasets/wellington/siamese/",
+            "path_target_time": "/home/luiz/experiments/.whitelist/datasets/wellington/no-siamese/",
+            "img_format": ".JPG"
+    },
+    "wcs": {
+            "metadata": "/data/luiz/dataset/wcs/wcs_camera_traps.json",
+            "images_path": "/data/luiz/dataset/wcs_images/",
+            "images_path_ssd": "/ssd/luiz/dataset/wcs_images/",
+            "images_filenames_glob_*": "/*/*/*",
+            "path_target_time_siamese": "/home/luiz/experiments/.whitelist/datasets/wcs/siamese/",
+            "path_target_time": "/home/luiz/experiments/.whitelist/datasets/wcs/no-siamese/",
+            "img_format": ".jpg"
+    },
+    "models": {
+        "zilong": {
+                "path_output_animal": "/home/luiz/experiments/Zilong/output/<dataset>/all_animal_images.txt",
+                "path_output_empty": "/home/luiz/experiments/Zilong/output/<dataset>/all_empty_images.txt",
+                "path_csv": "/home/luiz/experiments/Zilong/output/<dataset>/test.csv",
+                "path_tmp": "/ssd/luiz/dataset/tmp",
+                "path_test": "/home/luiz/experiments/.whitelist/datasets/<dataset>/siamese/short/test.csv",
+                "path_results": "/home/luiz/experiments/Zilong/output/",
+                "command": "/home/luiz/experiments/Zilong/Linux/zilong --shots 2 --threads 1 --maxLevel 5 --spatialRadius 5 --colorRadius 40 --max_edge_length 100 --num_foreground_pixel 10 --copy_image false --foggy_weather true --img_file_extension <TYPE> --timestamp 0 --in <INP> --out <OUT>"
+        }
+    }
+}

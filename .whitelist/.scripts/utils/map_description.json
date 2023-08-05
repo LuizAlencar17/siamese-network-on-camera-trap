@@ -1,0 +1,23 @@
+{
+    "datasets": {
+            "names": ["wcs", "wellington", "serengeti", "caltech"],
+            "metadata": "location of the json file where the dataset metadata is",
+            "images_path": "location of the directory where the dataset images are located",
+            "images_path_ssd": "location of the directory where the dataset images are located, only if you have ssd and want to transfer the images from hd to ssd",
+            "images_filenames_glob_*": "the subfolder structure of the directory where the images are located",
+            "path_target_time_siamese": "location where the .csv with the siamese image pairs should be created",
+            "path_target_time": "location where the .csv with the non-siamese image pairs should be created",
+            "img_format": "image format"
+    },
+    "models": {
+        "zilong": {
+                "path_output_animal": "location where the list of images with animals will be saved",
+                "path_output_empty": "location where the list of images without animals will be saved",
+                "path_csv": "location where the .csv with the classification results will be saved",
+                "path_tmp": "location of temporary directory for running zilong (in this directory little control information is stored)",
+                "path_test": "location from where the list of images will be loaded to be sorted",
+                "path_results": "location where standard zilong outputs will be saved",
+                "command": "shell command to run zilong"
+        }
+    }
+}
